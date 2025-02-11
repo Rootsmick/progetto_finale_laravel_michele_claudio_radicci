@@ -12,6 +12,11 @@ class ArticleController extends Controller
         return view('index', ['articles' => Article::all()]);
     }
 
+    public function home()
+    {
+        return view('home');
+    }
+
     public function create()
     {
         return view('create');
@@ -23,13 +28,19 @@ class ArticleController extends Controller
             'name' => $request->name,
             'body' => $request->body,
         ]);
-        return redirect('/');
+        return redirect('/index');
     }
 
     public function edit($id)
     {
         $article = Article::find($id);
         return view('edit', ['article' => $article]);
+    }
+
+    public function show($id)
+    {
+        $article = Article::find($id);
+        return view('show', ['article' => $article]);
     }
 
     public function update(Request $request, $id)
@@ -39,6 +50,12 @@ class ArticleController extends Controller
             'name' => $request->name,
             'body' => $request->body,
         ]);
-        return redirect('/');
+        return redirect('/index');
+    }
+
+    public function deleteArticle(Request $request, $id)
+    {
+        $article = Article::destroy($id);
+        return redirect('/index');
     }
 }

@@ -23,14 +23,31 @@
             <div class="row flex-nowrap justify-content-between align-items-center">
                 <div class="col-4 ">
                     <a class="blog-header-logo text-body-emphasis text-decoration-none" href="/">
-                        <img height="48px" src="black-logo.png" width="100px" height="auto">
+                        <img height="48px" src="/black-logo.png" width="100px" height="auto">
                     </a>
                 </div>
                 <div class="col-4 d-flex justify-content-end align-items-center">
-                    <a class="btn btn-sm btn-outline-secondary mx-2" href="#">Registrati</a>
-                    <a class="btn btn-sm btn-outline-secondary mx-2" href="#">Entra</a>
-                    <span>Benvenuto, Tizio</span>
-                    <a class="btn btn-sm btn-outline-secondary mx-2" href="#">Logout</a>
+                    @if (!Auth::user())
+                        <a class="btn btn-sm btn-outline-secondary mx-2" href="register">Registrati</a>
+                        <a class="btn btn-sm btn-outline-secondary mx-2" href="login">Entra</a>
+                    @else
+                        <div class="dropdown-center">
+                            <a href="#" class="dropdown-toggle text-decoration-none text-dark"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                <span>{{ Auth::user()->name }}</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="/edit-profile"
+                                        class="dropdown-item text-decoration-none text-dark">Modifica
+                                        Profilo</a></li>
+                            </ul>
+                        </div>
+                        <form action="{{ route('logout') }}" method="POST">
+                            @csrf
+                            <button class="btn btn-sm btn-outline-secondary mx-2" type="submit">Logout</button>
+                        </form>
+                    @endif
+                    <!-- <a class="btn btn-sm btn-outline-secondary mx-2" href="#">Logout</a>-->
                 </div>
             </div>
         </header>
@@ -88,13 +105,17 @@
 
                                     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
 
-                                        <a href="#" class="btn btn-primary me-md-2">
+                                        <a href="/show/{{ $article->id }}" class="btn btn-primary me-md-2">
                                             Visualizza
                                         </a>
                                         <a href="/edit/{{ $article->id }}" class="btn btn-warning me-md-2">
                                             Modifica
                                         </a>
-                                        <button type="button" class="btn btn-danger me-md-2">Elimina</button>
+                                        <form action="{{ route('delete.article', $article->id) }}" method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button class="btn btn-danger me-md-2" type="submit">Elimina</button>
+                                        </form>
                                     </div>
                                 </td>
                             </tr>

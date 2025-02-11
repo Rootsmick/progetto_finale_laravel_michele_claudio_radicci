@@ -22,8 +22,8 @@
         <header class="border-bottom lh-1 py-3">
             <div class="row flex-nowrap justify-content-between align-items-center">
                 <div class="col-4 ">
-                    <a class="blog-header-logo text-body-emphasis text-decoration-none" href="#">
-                        <img height="48px" src="black-logo.png" width="100px" height="auto">
+                    <a class="blog-header-logo text-body-emphasis text-decoration-none" href="/">
+                        <img height="48px" src="/black-logo.png" width="100px" height="auto">
                     </a>
                 </div>
                 <div class="col-4 d-flex justify-content-end align-items-center">
@@ -70,26 +70,38 @@
         </div>
     </div>
     <main>
-        <div class="px-4 px-md-5 mb-5">
 
-            <div class="row gx-5 justify-content-center ">
-                <div class="col-lg-8 col-xl-6 border p-5 rounded">
-                    <form action="/store" method="POST">
+        <div class="rounded-3 py-5 px-4 px-md-5 mb-5">
+
+            <div class="container mt-5">
+                <div class="align-middle gap-2 d-flex justify-content-between">
+                    <a href="/index" type="button" class="btn btn btn-secondary me-md-2">
+                        Indietro
+                    </a>
+
+                    <a href="/edit/{{ $article->id }}" class="btn btn-warning me-md-2">
+                        Modifica
+                    </a>
+                    <form action="{{ route('delete.article', $article->id) }}" method="POST">
                         @csrf
-                        <div class="mb-3">
-                            <input class="form-control" id="name" value="{{ old('name') }}" name="name"
-                                type="text" placeholder="Nome" required>
-                        </div>
-                        <div class="mb-3">
-                            <textarea class="form-control" name="body" id="body" rows="10" placeholder="Put your text here" required>{{ old('body') }}</textarea>
-                        </div>
-                        <div class="d-grid">
-                            <button class="btn btn-primary btn-lg" type="submit">Salva</button>
-                            <a href="/index" class="btn btn-danger btn-lg my-2" type="submit">Annulla</a>
-                        </div>
+                        @method('DELETE')
+                        <button class="btn btn-danger me-md-2" type="submit">Elimina</button>
                     </form>
+                    <a href="/create" type="button" class="btn btn btn-success me-md-2">
+                        Crea Nuovo Articolo
+                    </a>
+                </div>
+                <div class="px-4 px-md-5 mb-5">
+                    <div class="row gx-5 justify-content-center ">
+                        <div class="col-lg-8 col-xl-6 p-5">
+                            <h1>{{ $article->name }}</h1>
+                            <p>{{ $article->body }}</p>
+
+                        </div>
+                    </div>
                 </div>
             </div>
+        </div>
         </div>
 
     </main>

@@ -27,10 +27,27 @@
                     </a>
                 </div>
                 <div class="col-4 d-flex justify-content-end align-items-center">
-                    <a class="btn btn-sm btn-outline-secondary mx-2" href="#">Registrati</a>
-                    <a class="btn btn-sm btn-outline-secondary mx-2" href="#">Entra</a>
-                    <span>Benvenuto, Tizio</span>
-                    <a class="btn btn-sm btn-outline-secondary mx-2" href="#">Logout</a>
+                    @if (!Auth::user())
+                        <a class="btn btn-sm btn-outline-secondary mx-2" href="register">Registrati</a>
+                        <a class="btn btn-sm btn-outline-secondary mx-2" href="login">Entra</a>
+                    @else
+                        <div class="dropdown-center">
+                            <a href="#" class="dropdown-toggle text-decoration-none text-dark"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                <span>{{ Auth::user()->name }}</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="/edit-profile"
+                                        class="dropdown-item text-decoration-none text-dark">Modifica
+                                        Profilo</a></li>
+                            </ul>
+                        </div>
+                        <form action="{{ route('logout') }}" method="POST">
+                            @csrf
+                            <button class="btn btn-sm btn-outline-secondary mx-2" type="submit">Logout</button>
+                        </form>
+                    @endif
+                    <!-- <a class="btn btn-sm btn-outline-secondary mx-2" href="#">Logout</a>-->
                 </div>
             </div>
         </header>
@@ -70,6 +87,7 @@
                         </div>
                         <div class="d-grid">
                             <button class="btn btn-primary btn-lg" type="submit">Salva</button>
+                            <a href="/index" class="btn btn-danger btn-lg my-2" type="submit">Annulla</a>
                         </div>
                     </form>
                 </div>
