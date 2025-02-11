@@ -14,7 +14,9 @@
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
     <link href="https://fonts.googleapis.com/css?family=Playfair&#43;Display:700,900&amp;display=swap" rel="stylesheet">
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+    </script>
 </head>
 
 <body class="d-flex flex-column h-100">
@@ -87,7 +89,8 @@
                         </div>
                         <div class="d-grid">
                             <button class="btn btn-primary btn-lg" type="submit">Salva</button>
-                            <a href="/index" class="btn btn-danger btn-lg my-2" type="submit">Annulla</a>
+                            <a href="{{ url()->previous() }}" class="btn btn-danger btn-lg my-2"
+                                type="submit">Annulla</a>
                         </div>
                     </form>
                 </div>

@@ -85,7 +85,8 @@
                         </div>
                         <div class="d-grid">
                             <button class="btn btn-primary btn-lg" type="submit">Salva</button>
-                            <a href="/index" class="btn btn-danger btn-lg my-2" type="submit">Annulla</a>
+                            <a href="{{ url()->previous() }}" class="btn btn-danger btn-lg my-2"
+                                type="submit">Annulla</a>
                         </div>
                     </form>
                 </div>

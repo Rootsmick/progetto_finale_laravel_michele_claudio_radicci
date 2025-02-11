@@ -14,7 +14,9 @@
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
     <link href="https://fonts.googleapis.com/css?family=Playfair&#43;Display:700,900&amp;display=swap" rel="stylesheet">
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+    </script>
 </head>
 
 <body class="d-flex flex-column h-100">
@@ -111,11 +113,45 @@
                                         <a href="/edit/{{ $article->id }}" class="btn btn-warning me-md-2">
                                             Modifica
                                         </a>
-                                        <form action="{{ route('delete.article', $article->id) }}" method="POST">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button class="btn btn-danger me-md-2" type="submit">Elimina</button>
-                                        </form>
+                                        <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                                            data-bs-target="#deleteModal-{{ route('delete.article', $article->id) }}">
+                                            Elimina
+                                        </button>
+
+                                        <div class="modal fade"
+                                            id="deleteModal-{{ route('delete.article', $article->id) }}"
+                                            data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+                                            aria-labelledby="deleteModal-{{ route('delete.article', $article->id) }}"
+                                            aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-centered">
+                                                <form class="modal-content"
+                                                    action="{{ route('delete.article', $article->id) }}"
+                                                    method="POST">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    {{-- <button class="btn btn-danger me-md-2"
+                                                        type="submit">Elimina</button> --}}
+                                                    <div class="modal-header">
+                                                        <h1 class="modal-title fs-5"
+                                                            id="deleteModal-{{ route('delete.article', $article->id) }}">
+                                                            Cancella Articolo</h1>
+                                                        <button type="button" class="btn-close"
+                                                            data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <p>Sicuro di voler cancellare l'articolo? L'azione non è
+                                                            reversibile</p>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary"
+                                                            data-bs-dismiss="modal">Chiudi</button>
+                                                        <button type="submit"
+                                                            class="btn btn-primary">Conferma</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+
                                     </div>
                                 </td>
                             </tr>
