@@ -35,6 +35,11 @@ class MovieController extends Controller
         return view('home');
     }
 
+    public function homepage()
+    {
+        return view('homepage');
+    }
+
     public function create()
     {
         return view('create');

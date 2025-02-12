@@ -7,7 +7,7 @@
     <meta name="description" content>
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.122.0">
-    <title>Password Dimenticata</title>
+    <title>Home</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link href="/assets/style.css" rel="stylesheet"
@@ -58,39 +58,35 @@
 
             <div class="nav-scroller py-1 mb-3 border-bottom">
                 <nav class="nav nav-underline justify-content-between">
-                    <a class="nav-item nav-link link-body-emphasis active" href="/homepage">World</a>
+                    <a class="nav-item nav-link link-body-emphasis active" href="/homepage">Home</a>
                 </nav>
             </div>
         </div>
         <main>
-            <div class="container py-4">
-                <div class="p-5 mb-4 bg-body-tertiary rounded-3">
-                    <div class="container-fluid py-5">
-                        <h3>Inserisci la tua mail per ricevere il link per il recupero della password</h3>
-                        @if (session('status'))
-                            <div class="mb-4 font-medium text-sm text-green-600">
-                                {{ session('status') }}
-                            </div>
-                        @endif
-                        @if ($errors->any())
-                            <ul>
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        @endif
-                        <form action="{{ route('password.email') }}" method="POST">
-                            @csrf
-                            <label for="email">Email</label>
-                            <input type="email" name="email" id="email" class="form-control w-25">
-                            <button class="btn btn-secondary btn-sm mt-3" type="submit">Invia Link di
-                                Reset</button>
-                        </form>
-                        <a href="{{ url()->previous() }}" class="btn btn-outline-secondary btn-sm my-3"
-                            type="submit">Indietro</a>
+            @if (Auth::user())
+                <div class="container py-4">
+                    <div class="p-5 mb-4 bg-body-tertiary rounded-3">
+                        <div class="container-fluid py-5">
+
+                            <h1 class="display-5 fw-bold">Benvenuto, {{ Auth::user()->name }}</h1>
+
+                            <p class="col-md-8 fs-4">Qui puoi creare nuovi
+                                film, clicca sul pulsante in basso per
+                                accedere alla sezione dedicata </p>
+                            <a href="/create" class="btn btn-primary btn-lg" type="button">Nuovo Film</a>
+                        </div>
                     </div>
-                </div>
-            </div>
+
+                    <div class="row align-items-md-stretch">
+                        <div class="col-md-4">
+                            <div class="h-100 p-5 text-bg-dark rounded-3">
+                                <h2>Amministra i Film</h2>
+
+                                <a href="/index" class="btn btn-outline-light" type="button">Vedi Film</a>
+                            </div>
+                        </div>
+                    </div>
+            @endif
         </main>
         <footer class="footer py-5 mt-auto text-center text-body-secondary bg-body-tertiary">
             <p>Copyright 2025 Michele C. Radicci</p>

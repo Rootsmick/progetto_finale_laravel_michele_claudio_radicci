@@ -26,7 +26,7 @@
             <header class="border-bottom lh-1 py-3">
                 <div class="row flex-nowrap justify-content-between align-items-center">
                     <div class="col-4 ">
-                        <a class="blog-header-logo text-body-emphasis text-decoration-none" href="/">
+                        <a class="blog-header-logo text-body-emphasis text-decoration-none" href="/homepage">
                             <img height="48px" src="/black-logo.png">
                         </a>
                     </div>
@@ -58,7 +58,7 @@
 
             <div class="nav-scroller py-1 mb-3 border-bottom">
                 <nav class="nav nav-underline justify-content-between">
-                    <a class="nav-item nav-link link-body-emphasis active" href="/">Home</a>
+                    <a class="nav-item nav-link link-body-emphasis active" href="/homepage">Home</a>
                 </nav>
             </div>
         </div>
@@ -93,7 +93,7 @@
 
                             <button class="btn btn-secondary btn-sm mt-3" type="submit">Reset Password</button>
                         </form>
-                        <a href="/" class="btn btn-danger btn-sm mt-3">Annulla</a>
+                        <a href="/homepage" class="btn btn-danger btn-sm mt-3">Annulla</a>
                     </div>
                 </div>
             </div>
