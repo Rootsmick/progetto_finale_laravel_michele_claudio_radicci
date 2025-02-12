@@ -92,49 +92,52 @@
                         <tr>
                             <th scope="col">#</th>
                             <th scope="col">Titolo</th>
-                            <th scope="col">Corpo</th>
+                            <th scope="col">Durata</th>
+                            <th scope="col">Synopsis</th>
                             <th scope="col"></th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($articles as $i => $article)
+                        @foreach ($movies as $i => $movie)
                             <tr>
                                 <th scope="row">{{ $i + 1 }}</th>
                                 <td>
-                                    {{ $article->name }}
+                                    {{ $movie->name }}
                                 </td>
-                                <td>{{ $article->body }}</td>
+                                <td>{{ $movie->duration }}</td>
+
+                                <td class="text-truncate" style="max-width: 150px;">
+                                    {{ $movie->synopsis }}</td>
                                 <td>
 
                                     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
 
-                                        <a href="/show/{{ $article->id }}" class="btn btn-primary me-md-2">
+                                        <a href="/show/{{ $movie->id }}" class="btn btn-primary me-md-2">
                                             Visualizza
                                         </a>
-                                        <a href="/edit/{{ $article->id }}" class="btn btn-warning me-md-2">
+                                        <a href="/edit/{{ $movie->id }}" class="btn btn-warning me-md-2">
                                             Modifica
                                         </a>
                                         <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                            data-bs-target="#deleteModal-{{ route('delete.article', $article->id) }}">
+                                            data-bs-target="#deleteModal-{{ route('delete.movie', $movie->id) }}">
                                             Elimina
                                         </button>
 
                                         <div class="modal fade"
-                                            id="deleteModal-{{ route('delete.article', $article->id) }}"
+                                            id="deleteModal-{{ route('delete.movie', $movie->id) }}"
                                             data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-                                            aria-labelledby="deleteModal-{{ route('delete.article', $article->id) }}"
+                                            aria-labelledby="deleteModal-{{ route('delete.movie', $movie->id) }}"
                                             aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-centered">
                                                 <form class="modal-content"
-                                                    action="{{ route('delete.article', $article->id) }}"
-                                                    method="POST">
+                                                    action="{{ route('delete.movie', $movie->id) }}" method="POST">
                                                     @csrf
                                                     @method('DELETE')
                                                     {{-- <button class="btn btn-danger me-md-2"
                                                         type="submit">Elimina</button> --}}
                                                     <div class="modal-header">
                                                         <h1 class="modal-title fs-5"
-                                                            id="deleteModal-{{ route('delete.article', $article->id) }}">
+                                                            id="deleteModal-{{ route('delete.movie', $movie->id) }}">
                                                             Cancella Articolo</h1>
                                                         <button type="button" class="btn-close"
                                                             data-bs-dismiss="modal" aria-label="Close"></button>

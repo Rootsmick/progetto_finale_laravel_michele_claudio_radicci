@@ -7,7 +7,7 @@
     <meta name="description" content>
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.122.0">
-    <title>{{ $article->name }}</title>
+    <title>{{ $movie->name }}</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link href="/assets/style.css" rel="stylesheet"
@@ -81,10 +81,10 @@
                         Indietro
                     </a>
 
-                    <a href="/edit/{{ $article->id }}" class="btn btn-warning me-md-2">
+                    <a href="/edit/{{ $movie->id }}" class="btn btn-warning me-md-2">
                         Modifica
                     </a>
-                    <form action="{{ route('delete.article', $article->id) }}" method="POST">
+                    <form action="{{ route('delete.movie', $movie->id) }}" method="POST">
                         @csrf
                         @method('DELETE')
                         <button class="btn btn-danger me-md-2" type="submit">Elimina</button>
@@ -96,11 +96,13 @@
                 <div class="px-4 px-md-5 mb-5">
                     <div class="row gx-5 justify-content-center ">
                         <div class="col-lg-8 col-xl-6 p-5">
-                            <h1>{{ $article->name }}</h1>
-                            <p style="font-size: 10px">Creato da {{ $article->user->name ?? 'Anonimo' }} il
-                                {{ $article->created_at }}
+                            <h1>{{ $movie->name }}</h1>
+                            <p style="font-size: 10px">Creato da {{ $movie->user->name ?? 'Anonimo' }} il
+                                {{ $movie->created_at }}
                             </p>
-                            <p>{{ $article->body }}</p>
+                            <p>{{ $movie->duration }} minuti</p>
+                            <h3>Trama:</h3>
+                            <p>{{ $movie->synopsis }}</p>
 
                         </div>
                     </div>

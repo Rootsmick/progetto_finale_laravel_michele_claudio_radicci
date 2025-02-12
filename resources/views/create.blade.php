@@ -81,7 +81,11 @@
                                 type="text" placeholder="Nome" required>
                         </div>
                         <div class="mb-3">
-                            <textarea class="form-control" name="body" id="body" rows="10" placeholder="Put your text here" required>{{ old('body') }}</textarea>
+                            <input class="form-control" name="duration" id="duration" value="{{ old('duration') }}"
+                                placeholder="Duration" required>
+                        </div>
+                        <div class="mb-3">
+                            <textarea class="form-control" name="synopsis" rows="10" id="synopsis" placeholder="Put your text here" required>{{ old('synopsis') }}</textarea>
                         </div>
                         <div class="d-grid">
                             <button class="btn btn-primary btn-lg" type="submit">Salva</button>

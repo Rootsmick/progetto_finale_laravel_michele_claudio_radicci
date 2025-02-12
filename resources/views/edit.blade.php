@@ -77,15 +77,19 @@
             <div class="row gx-5 justify-content-center ">
                 <div class="col-lg-8 col-xl-6 border p-5 rounded">
 
-                    <form action="/update/{{ $article->id }}" method="POST">
+                    <form action="/update/{{ $movie->id }}" method="POST">
                         @method('PUT')
                         @csrf
                         <div class="mb-3">
-                            <input class="form-control" id="name" value="{{ $article->name }}" name="name"
+                            <input class="form-control" id="name" value="{{ $movie->name }}" name="name"
                                 type="text" placeholder="Nome" required>
                         </div>
                         <div class="mb-3">
-                            <textarea class="form-control" name="body" id="body" rows="10" placeholder="Put your text here" required>{{ $article->body }}</textarea>
+                            <input class="form-control" name="body" id="body" rows="10"
+                                placeholder="{{ $movie->duration }}" required>
+                        </div>
+                        <div class="mb-3">
+                            <textarea class="form-control" name="body" id="body" rows="10" placeholder="Put your text here" required>{{ $movie->synopsis }}</textarea>
                         </div>
                         <div class="d-grid">
                             <button class="btn btn-primary btn-lg" type="submit">Salva</button>

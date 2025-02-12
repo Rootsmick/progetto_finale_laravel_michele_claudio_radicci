@@ -78,7 +78,7 @@
                 <div class="p-5 mb-4 bg-body-tertiary rounded-3">
                     <div class="container-fluid py-5">
                         @if (Auth::user())
-                            <h1 class="display-5 fw-bold">Benvenuto, {{ Auth::user()->name }}</h1>
+                            <h1 class="display-5 fw-bold">Benvenuto, {{ Auth::user()->name }} oggi</h1>
                         @endif
                         <p class="col-md-8 fs-4">Qui puoi creare nuovi
                             libri, clicca sul pulsante in basso per

@@ -4,9 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Article extends Model
+class Movie extends Model
 {
-    protected $fillable = ['name', 'body', 'user_id'];
+    protected $fillable = ['name', 'duration', 'synopsis', 'user_id'];
     public function user()
     {
         return $this->belongsTo(User::class);
