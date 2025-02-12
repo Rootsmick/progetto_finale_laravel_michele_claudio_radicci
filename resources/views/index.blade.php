@@ -7,7 +7,7 @@
     <meta name="description" content>
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.122.0">
-    <title>Articoli</title>
+    <title>Film</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link href="/assets/style.css" rel="stylesheet"
@@ -25,7 +25,7 @@
             <div class="row flex-nowrap justify-content-between align-items-center">
                 <div class="col-4 ">
                     <a class="blog-header-logo text-body-emphasis text-decoration-none" href="/">
-                        <img height="48px" src="/black-logo.png" width="100px" height="auto">
+                        <img height="48px" src="/black-logo.png">
                     </a>
                 </div>
                 <div class="col-4 d-flex justify-content-end align-items-center">
@@ -56,18 +56,7 @@
 
         <div class="nav-scroller py-1 mb-3 border-bottom">
             <nav class="nav nav-underline justify-content-between">
-                <a class="nav-item nav-link link-body-emphasis active" href="#">World</a>
-                <a class="nav-item nav-link link-body-emphasis" href="#">U.S.</a>
-                <a class="nav-item nav-link link-body-emphasis" href="#">Technology</a>
-                <a class="nav-item nav-link link-body-emphasis" href="#">Design</a>
-                <a class="nav-item nav-link link-body-emphasis" href="#">Culture</a>
-                <a class="nav-item nav-link link-body-emphasis" href="#">Business</a>
-                <a class="nav-item nav-link link-body-emphasis" href="#">Politics</a>
-                <a class="nav-item nav-link link-body-emphasis" href="#">Opinion</a>
-                <a class="nav-item nav-link link-body-emphasis" href="#">Science</a>
-                <a class="nav-item nav-link link-body-emphasis" href="#">Health</a>
-                <a class="nav-item nav-link link-body-emphasis" href="#">Style</a>
-                <a class="nav-item nav-link link-body-emphasis" href="#">Travel</a>
+                <a class="nav-item nav-link link-body-emphasis active" href="/">Home</a>
             </nav>
         </div>
     </div>
@@ -77,14 +66,14 @@
 
             <div class="container mt-5">
                 <div class="align-middle gap-2 d-flex justify-content-between">
-                    <h3>Elenco Articoli inseriti</h3>
+                    <h3>Elenco Film inseriti</h3>
                     <form class="d-flex" role="search" action="/index" method="GET">
                         <input class="form-control me-2" type="search" name="name" id="query"
                             placeholder="Cerca Articolo" aria-label="Search">
                         <button class="btn btn-outline-secondary" type="submit">Cerca</button>
                     </form>
                     <a href="/create" type="button" class="btn btn btn-success me-md-2">
-                        Crea Nuovo Articolo
+                        Crea Nuovo Film
                     </a>
                 </div>
                 <table class="table border mt-2">
@@ -123,8 +112,7 @@
                                             Elimina
                                         </button>
 
-                                        <div class="modal fade"
-                                            id="deleteModal-{{ route('delete.movie', $movie->id) }}"
+                                        <div class="modal fade" id="deleteModal-{{ route('delete.movie', $movie->id) }}"
                                             data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
                                             aria-labelledby="deleteModal-{{ route('delete.movie', $movie->id) }}"
                                             aria-hidden="true">
@@ -143,7 +131,7 @@
                                                             data-bs-dismiss="modal" aria-label="Close"></button>
                                                     </div>
                                                     <div class="modal-body">
-                                                        <p>Sicuro di voler cancellare l'articolo? L'azione non è
+                                                        <p>Sicuro di voler cancellare il film? L'azione non è
                                                             reversibile</p>
                                                     </div>
                                                     <div class="modal-footer">

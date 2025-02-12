@@ -27,7 +27,7 @@
                 <div class="row flex-nowrap justify-content-between align-items-center">
                     <div class="col-4 ">
                         <a class="blog-header-logo text-body-emphasis text-decoration-none" href="/">
-                            <img height="48px" src="/black-logo.png" width="100px" height="auto">
+                            <img height="48px" src="/black-logo.png">
                         </a>
                     </div>
                     <div class="col-4 d-flex justify-content-end align-items-center">
@@ -58,18 +58,7 @@
 
             <div class="nav-scroller py-1 mb-3 border-bottom">
                 <nav class="nav nav-underline justify-content-between">
-                    <a class="nav-item nav-link link-body-emphasis active" href="#">World</a>
-                    <a class="nav-item nav-link link-body-emphasis" href="#">U.S.</a>
-                    <a class="nav-item nav-link link-body-emphasis" href="#">Technology</a>
-                    <a class="nav-item nav-link link-body-emphasis" href="#">Design</a>
-                    <a class="nav-item nav-link link-body-emphasis" href="#">Culture</a>
-                    <a class="nav-item nav-link link-body-emphasis" href="#">Business</a>
-                    <a class="nav-item nav-link link-body-emphasis" href="#">Politics</a>
-                    <a class="nav-item nav-link link-body-emphasis" href="#">Opinion</a>
-                    <a class="nav-item nav-link link-body-emphasis" href="#">Science</a>
-                    <a class="nav-item nav-link link-body-emphasis" href="#">Health</a>
-                    <a class="nav-item nav-link link-body-emphasis" href="#">Style</a>
-                    <a class="nav-item nav-link link-body-emphasis" href="#">Travel</a>
+                    <a class="nav-item nav-link link-body-emphasis active" href="/">Home</a>
                 </nav>
             </div>
         </div>
@@ -78,21 +67,21 @@
                 <div class="p-5 mb-4 bg-body-tertiary rounded-3">
                     <div class="container-fluid py-5">
                         @if (Auth::user())
-                            <h1 class="display-5 fw-bold">Benvenuto, {{ Auth::user()->name }} oggi</h1>
+                            <h1 class="display-5 fw-bold">Benvenuto, {{ Auth::user()->name }}</h1>
                         @endif
                         <p class="col-md-8 fs-4">Qui puoi creare nuovi
-                            libri, clicca sul pulsante in basso per
+                            film, clicca sul pulsante in basso per
                             accedere alla sezione dedicata </p>
-                        <a href="/create" class="btn btn-primary btn-lg" type="button">Nuovo Libro</a>
+                        <a href="/create" class="btn btn-primary btn-lg" type="button">Nuovo Film</a>
                     </div>
                 </div>
 
                 <div class="row align-items-md-stretch">
                     <div class="col-md-4">
                         <div class="h-100 p-5 text-bg-dark rounded-3">
-                            <h2>Amministra i Libri</h2>
+                            <h2>Amministra i Film</h2>
 
-                            <a href="/index" class="btn btn-outline-light" type="button">Vedi Libri</a>
+                            <a href="/index" class="btn btn-outline-light" type="button">Vedi Film</a>
                         </div>
                     </div>
                     <div class="col-md-4">
@@ -113,7 +102,7 @@
 
         </main>
         <footer class="footer py-5 mt-auto text-center text-body-secondary bg-body-tertiary">
-            <p>Copyright</p>
+            <p>Copyright 2025 Michele C. Radicci</p>
         </footer>
     </body>
 
