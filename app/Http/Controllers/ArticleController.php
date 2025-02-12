@@ -17,11 +17,11 @@ class ArticleController extends Controller
 
         if ($name) {
             $articlesQuery->where('name', 'like', "%$name%")->where(function ($query) {
-                $query->where('user_id', auth()->user()->id)->orWhere('user_id', 0);
+                $query->where('user_id', auth()->user()->id)->orWhere('user_id', null);
             });
         } else {
             $articlesQuery->where(function ($query) {
-                $query->where('user_id', auth()->user()->id)->orWhere('user_id', 0);
+                $query->where('user_id', auth()->user()->id)->orWhere('user_id', null);
             });
         }
 

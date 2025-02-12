@@ -97,7 +97,7 @@
                     <div class="row gx-5 justify-content-center ">
                         <div class="col-lg-8 col-xl-6 p-5">
                             <h1>{{ $article->name }}</h1>
-                            <p style="font-size: 10px">Creato da {{ $article->user->name }} il
+                            <p style="font-size: 10px">Creato da {{ $article->user->name ?? 'Anonimo' }} il
                                 {{ $article->created_at }}
                             </p>
                             <p>{{ $article->body }}</p>
