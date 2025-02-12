@@ -7,11 +7,26 @@ use Illuminate\Http\Request;
 
 class ArticleController extends Controller
 {
-    public function index()
+    public function index(Article $article, Request $request, $name = null)
     {
-        $articles = Article::where('user_id', auth()->user()->id)
-            ->orwhere('user_id', 0)
-            ->get();
+        if (!$name) {
+            $name = $request->query('name');
+        }
+
+        $articlesQuery = Article::query();
+
+        if ($name) {
+            $articlesQuery->where('name', 'like', "%$name%")->where(function ($query) {
+                $query->where('user_id', auth()->user()->id)->orWhere('user_id', 0);
+            });
+        } else {
+            $articlesQuery->where(function ($query) {
+                $query->where('user_id', auth()->user()->id)->orWhere('user_id', 0);
+            });
+        }
+
+        $articles = $articlesQuery->get();
+
         return view('index', ['articles' => $articles]);
     }
 

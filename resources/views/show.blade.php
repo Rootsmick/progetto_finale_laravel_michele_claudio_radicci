@@ -7,7 +7,7 @@
     <meta name="description" content>
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.122.0">
-    <title>Blog Template · Bootstrap v5.3</title>
+    <title>{{ $article->name }}</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link href="/assets/style.css" rel="stylesheet"
@@ -97,6 +97,9 @@
                     <div class="row gx-5 justify-content-center ">
                         <div class="col-lg-8 col-xl-6 p-5">
                             <h1>{{ $article->name }}</h1>
+                            <p style="font-size: 10px">Creato da {{ $article->user->name }} il
+                                {{ $article->created_at }}
+                            </p>
                             <p>{{ $article->body }}</p>
 
                         </div>

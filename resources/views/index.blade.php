@@ -7,7 +7,7 @@
     <meta name="description" content>
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.122.0">
-    <title>Blog Template · Bootstrap v5.3</title>
+    <title>Articoli</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link href="/assets/style.css" rel="stylesheet"
@@ -78,9 +78,10 @@
             <div class="container mt-5">
                 <div class="align-middle gap-2 d-flex justify-content-between">
                     <h3>Elenco Articoli inseriti</h3>
-                    <form class="d-flex" role="search" action="#" method="POST">
-                        <input class="form-control me-2" name="search" type="search" placeholder="Cerca Articolo"
-                            aria-label="Search">
+                    <form class="d-flex" role="search" action="/index" method="GET">
+                        <input class="form-control me-2" type="search" name="name" id="query"
+                            placeholder="Cerca Articolo" aria-label="Search">
+                        <button class="btn btn-outline-secondary" type="submit">Cerca</button>
                     </form>
                     <a href="/create" type="button" class="btn btn btn-success me-md-2">
                         Crea Nuovo Articolo

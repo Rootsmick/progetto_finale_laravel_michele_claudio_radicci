@@ -7,7 +7,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/edit-profile', function () {
         return view('edit-profile');
     })->middleware('verified');
-    Route::get('/index', [ArticleController::class, 'index']); //lista di tutti gli articoli
+    Route::get('/index/{name?}', [ArticleController::class, 'index']); //lista di tutti gli articoli
     Route::get('/create', [ArticleController::class, 'create']); //form
     Route::post('/store', [ArticleController::class, 'store']); //salvataggio
     Route::get('/edit/{article}', [ArticleController::class, 'edit']); //modifico
